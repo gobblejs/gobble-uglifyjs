@@ -1,0 +1,15 @@
+{
+  "name": "gobble-uglifyjs",
+  "version": "0.1.0",
+  "description": "Minify JavaScript files with gobble and uglifyjs2",
+  "author": "Rich Harris",
+  "keywords": [
+    "gobble"
+  ],
+  "dependencies": {
+    "uglify-js": "~2.4.15"
+  },
+  "files": [
+    "index.js"
+  ]
+}
