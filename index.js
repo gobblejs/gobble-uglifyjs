@@ -2,8 +2,10 @@ module.exports = uglifyjs;
 
 function uglifyjs ( code, options ) {
 	options.fromString = true;
-	return require( 'uglify-js' ).minify( code, options ).code;
-};
+	options.outSourceMap = this.mapname;
+
+	return require( 'uglify-js' ).minify( code, options );
+}
 
 uglifyjs.defaults = {
 	accept: '.js'
