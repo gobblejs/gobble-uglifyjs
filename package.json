@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": "https://github.com/gobblejs/gobble-uglifyjs",
   "keywords": [
-    "gobble"
+    "gobble",
+    "gobble-plugin"
   ],
   "dependencies": {
     "uglify-js": "~2.4.15"
