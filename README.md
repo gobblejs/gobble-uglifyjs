@@ -16,14 +16,14 @@ npm i -D gobble-uglifyjs
 
 ```js
 var gobble = require( 'gobble' );
-module.exports = gobble( 'src' ).map( 'uglifyjs' );
+module.exports = gobble( 'src' ).transform( 'uglifyjs' );
 ```
 
 If you want the output to have a `.min.js` extension, add an `options` argument:
 
 ```js
 var gobble = require( 'gobble' );
-module.exports = gobble( 'src' ).map( 'uglifyjs', { ext: '.min.js' });
+module.exports = gobble( 'src' ).transform( 'uglifyjs', { ext: '.min.js' });
 ```
 
 To keep the non-minifed version alongside the result of the transformation:
@@ -32,26 +32,13 @@ To keep the non-minifed version alongside the result of the transformation:
 var gobble = require( 'gobble' ), src = gobble( 'src' );
 module.exports = [
   src,
-  src.map( 'uglifyjs', { ext: '.min.js' })
+  src.transform( 'uglifyjs', { ext: '.min.js' })
 ];
 ```
 
-## Source code
-
-```js
-module.exports = uglifyjs;
-
-function uglifyjs ( code, options ) {
-  options.fromString = true;
-  return require( 'uglify-js' ).minify( code, options ).code;
-};
-
-uglifyjs.defaults = {
-  accept: '.js'
-};
-```
+By default, sourcemaps are created. To disable, pass a `sourceMap: false` option.
 
 
 ## License
 
-MIT. Copyright 2014 Rich Harris
+MIT. Copyright 2014-15 Rich Harris
