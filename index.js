@@ -2,11 +2,12 @@ module.exports = uglifyjs;
 
 function uglifyjs ( code, options ) {
 	options.fromString = true;
-	options.outSourceMap = this.mapname;
+	options.outSourceMap = options.sourceMap !== false;
 
 	return require( 'uglify-js' ).minify( code, options );
 }
 
 uglifyjs.defaults = {
-	accept: '.js'
+	accept: '.js',
+	sourceMap: true
 };
